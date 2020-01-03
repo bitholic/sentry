@@ -149,6 +149,11 @@ register("snuba.search.max-total-chunk-time-seconds", default=30.0)
 register("snuba.search.hits-sample-size", default=100)
 register("snuba.track-outcomes-sample-rate", default=0.0)
 
+# Kill switch to disable caching of tagkeys. Set to True to disable caching of tag keys.
+register(
+    "snuba.tagstore.disable-cache-tagkeys", type=Bool, default=False, flags=FLAG_PRIORITIZE_DISK
+)
+
 # Kafka Publisher
 register("kafka-publisher.raw-event-sample-rate", default=0.0)
 register("kafka-publisher.max-event-size", default=100000)
