@@ -121,12 +121,12 @@ exports[`ProjectSecurityHeaders renders 1`] = `
         flex={false}
       >
         <PanelItem
-          direction="column"
+          flexDirection="column"
           key="csp/"
           p={0}
         >
           <Flex
-            align="center"
+            alignItems="center"
             flex="1"
             p={2}
           >
@@ -148,12 +148,12 @@ exports[`ProjectSecurityHeaders renders 1`] = `
           </Flex>
         </PanelItem>
         <PanelItem
-          direction="column"
+          flexDirection="column"
           key="expect-ct/"
           p={0}
         >
           <Flex
-            align="center"
+            alignItems="center"
             flex="1"
             p={2}
           >
@@ -175,12 +175,12 @@ exports[`ProjectSecurityHeaders renders 1`] = `
           </Flex>
         </PanelItem>
         <PanelItem
-          direction="column"
+          flexDirection="column"
           key="hpkp/"
           p={0}
         >
           <Flex
-            align="center"
+            alignItems="center"
             flex="1"
             p={2}
           >

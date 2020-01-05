@@ -58,7 +58,7 @@ exports[`AccountIdentities renders list 1`] = `
         flex={false}
       >
         <PanelItem
-          align="center"
+          alignItems="center"
           key="1"
           p={0}
         >

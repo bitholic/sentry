@@ -4,7 +4,7 @@ exports[`MultipleCheckbox renders 1`] = `
 <MultipleCheckboxWrapper>
   <Box
     key="0"
-    w={
+    width={
       Array [
         1,
         0.5,
@@ -27,7 +27,7 @@ exports[`MultipleCheckbox renders 1`] = `
   </Box>
   <Box
     key="1"
-    w={
+    width={
       Array [
         1,
         0.5,
@@ -50,7 +50,7 @@ exports[`MultipleCheckbox renders 1`] = `
   </Box>
   <Box
     key="2"
-    w={
+    width={
       Array [
         1,
         0.5,

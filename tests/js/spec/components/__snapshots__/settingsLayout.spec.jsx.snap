@@ -5,8 +5,7 @@ exports[`SettingsLayout renders 1`] = `
   <SettingsColumn>
     <SettingsHeader>
       <Flex
-        align="center"
-        width={1}
+        alignItems="center"
       >
         <Box
           flex="1"
