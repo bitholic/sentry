@@ -1,7 +1,8 @@
+import {Link} from 'react-router';
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'react-emotion';
-import {Link} from 'react-router';
+import isPropValid from '@emotion/is-prop-valid';
 
 import InlineSvg from 'app/components/inlineSvg';
 import Tooltip from 'app/components/tooltip';
@@ -18,9 +19,8 @@ type Props = {
   isOpen: boolean;
   locked: boolean;
   loading: boolean;
-  innerRef: React.Ref<HTMLDivElement>;
   onClear: () => void;
-} & HTMLDivElement;
+} & React.HTMLProps<HTMLDivElement>;
 
 class HeaderItem extends React.Component<Props> {
   static propTypes = {
@@ -46,7 +46,6 @@ class HeaderItem extends React.Component<Props> {
 
   render() {
     const {
-      className,
       children,
       isOpen,
       hasSelected,
@@ -59,26 +58,19 @@ class HeaderItem extends React.Component<Props> {
       loading,
       ...props
     } = this.props;
+
+    const textColorProps = {
+      locked,
+      isOpen,
+      hasSelected,
+    };
+
     return (
-      <StyledHeaderItem
-        className={className}
-        isOpen={isOpen}
-        hasSelected={hasSelected}
-        locked={locked}
-        loading={loading}
-        {...props}
-      >
-        <IconContainer hasSelected={hasSelected} locked={locked}>
-          {icon}
-        </IconContainer>
+      <StyledHeaderItem loading={loading} {...props} {...textColorProps}>
+        <IconContainer {...textColorProps}>{icon}</IconContainer>
         <Content>{children}</Content>
         {hasSelected && !locked && allowClear && (
-          <StyledClose
-            src="icon-close"
-            locked={locked}
-            hasSelected={hasSelected}
-            onClick={this.handleClear}
-          />
+          <StyledClose {...textColorProps} src="icon-close" onClick={this.handleClear} />
         )}
         {settingsLink && (
           <SettingsIconLink to={settingsLink}>
@@ -100,6 +92,7 @@ class HeaderItem extends React.Component<Props> {
   }
 }
 
+// Infer props here because of styled/theme
 const getColor = p => {
   if (p.locked) {
     return p.theme.gray2;
@@ -107,7 +100,12 @@ const getColor = p => {
   return p.isOpen || p.hasSelected ? p.theme.gray4 : p.theme.gray2;
 };
 
-const StyledHeaderItem = styled('div')`
+const StyledHeaderItem = styled('div', {shouldForwardProp: isPropValid})<{
+  isOpen: boolean;
+  hasSelected: boolean;
+  locked: boolean;
+  loading: boolean;
+}>`
   display: flex;
   padding: 0 ${space(4)};
   align-items: center;
@@ -123,12 +121,18 @@ const Content = styled('div')`
   ${overflowEllipsis};
 `;
 
-const IconContainer = styled('span')`
+type ColorProps = {
+  locked: boolean;
+  isOpen: boolean;
+  hasSelected: boolean;
+};
+
+const IconContainer = styled('span', {shouldForwardProp: isPropValid})<ColorProps>`
   color: ${getColor};
   margin-right: ${space(1.5)};
 `;
 
-const StyledClose = styled(InlineSvg)`
+const StyledClose = styled(InlineSvg, {shouldForwardProp: isPropValid})<ColorProps>`
   color: ${getColor};
   height: ${space(1.5)};
   width: ${space(1.5)};
@@ -175,6 +179,4 @@ const StyledLock = styled(InlineSvg)`
   stroke-width: 1.5;
 `;
 
-export default React.forwardRef((props: Props, ref: React.Ref<HTMLDivElement>) => (
-  <HeaderItem {...props} innerRef={ref} />
-));
+export default HeaderItem;
