@@ -75,7 +75,8 @@ class GroupEventAttachmentsTableRow extends React.Component<Props> {
 }
 
 type TableRowProps = {isDeleted: boolean};
-const TableRow = styled('tr')`
+
+const TableRow = styled('tr')<TableRowProps>`
   opacity: ${(props: TableRowProps) => (props.isDeleted ? 0.3 : 1)};
   td {
     text-decoration: ${(props: TableRowProps) =>

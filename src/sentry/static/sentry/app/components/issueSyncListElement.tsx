@@ -172,7 +172,7 @@ export const IntegrationLink = styled('a')`
   }
 `;
 
-export const OpenCloseIcon = styled(InlineSvg)`
+export const OpenCloseIcon = styled(InlineSvg)<{isLinked: boolean}>`
   height: ${space(1.5)};
   color: ${p => p.theme.gray4};
   transition: 0.2s transform;
