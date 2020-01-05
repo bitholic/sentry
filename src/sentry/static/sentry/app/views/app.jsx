@@ -3,7 +3,8 @@ import {ThemeProvider} from 'emotion-theming';
 import {browserHistory} from 'react-router';
 import isEqual from 'lodash/isEqual';
 import get from 'lodash/get';
-import {injectGlobal} from 'emotion';
+import {Global, css} from '@emotion/core';
+
 import Cookies from 'js-cookie';
 import PropTypes from 'prop-types';
 import React from 'react';
@@ -256,6 +257,15 @@ class App extends React.Component {
 
     return (
       <ThemeProvider theme={theme}>
+        <Global
+          styles={css`
+            body {
+              .sentry-error-embed-wrapper {
+                z-index: ${theme.zIndex.sentryErrorEmbed};
+              }
+            }
+          `}
+        />
         <div
           className="main-container"
           tabIndex="-1"
@@ -272,11 +282,3 @@ class App extends React.Component {
 }
 
 export default withApi(withConfig(App));
-
-injectGlobal`
-body {
-  .sentry-error-embed-wrapper {
-    z-index: ${theme.zIndex.sentryErrorEmbed};
-  }
-}
-`;
