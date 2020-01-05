@@ -42,7 +42,7 @@ class FeatureDisabled extends React.Component {
      * Attaches additional styles to the FeatureDisabled component to make it
      * look consistent within the Alert.
      */
-    alert: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
+    alert: PropTypes.oneOfType([PropTypes.bool, PropTypes.func, PropTypes.elementType]),
     /**
      * Do not show the help toggle. The description will always be rendered.
      */
