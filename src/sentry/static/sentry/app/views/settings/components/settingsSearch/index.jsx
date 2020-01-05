@@ -10,17 +10,19 @@ const MIN_SEARCH_LENGTH = 1;
 const MAX_RESULTS = 10;
 
 class SettingsSearch extends React.Component {
+  searchInput = React.createRef();
+
   @keydown('/')
   handleFocusSearch(e) {
-    if (!this.searchInput) {
+    if (!this.searchInput.current) {
       return;
     }
-    if (e.target === this.searchInput) {
+    if (e.target === this.searchInput.current) {
       return;
     }
 
     e.preventDefault();
-    this.searchInput.focus();
+    this.searchInput.current.focus();
   }
 
   render() {
