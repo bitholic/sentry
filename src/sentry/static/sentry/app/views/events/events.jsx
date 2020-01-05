@@ -220,7 +220,7 @@ class Events extends AsyncView {
                 </Feature>
               )}
             </RowDisplay>
-            <Pagination pageLinks={eventsPageLinks} className="" />
+            <PaginationNoMargin pageLinks={eventsPageLinks} className="" />
           </PaginationWrapper>
         )}
       </React.Fragment>
@@ -232,6 +232,10 @@ const PaginationWrapper = styled('div')`
   display: flex;
   align-items: center;
   justify-content: space-between;
+`;
+
+const PaginationNoMargin = styled(Pagination)`
+  margin: 0;
 `;
 
 const RowDisplay = styled('div')`
