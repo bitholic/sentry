@@ -2,7 +2,7 @@ import {Link} from 'react-router';
 import PropTypes from 'prop-types';
 import React from 'react';
 import classNames from 'classnames';
-import styled from 'react-emotion';
+import styled from '@emotion/styled';
 
 import {PanelItem} from 'app/components/panels';
 import {t} from 'app/locale';

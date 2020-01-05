@@ -1,4 +1,4 @@
-import {css} from 'react-emotion';
+import {css} from '@emotion/core';
 import {Flex} from '@rebass/grid/emotion';
 import PropTypes from 'prop-types';
 import React from 'react';
