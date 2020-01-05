@@ -116,7 +116,7 @@ class PercentageTableChart extends React.Component {
             <Percentage>{percentage}%</Percentage>
           </React.Fragment>,
         ])}
-        renderRow={({items, rowIndex, ...other}) => (
+        renderRow={({items, rowIndex, ..._other}) => (
           <Row
             dataRowClassName={rowClassName}
             headerRowClassName={headerClassName}
@@ -225,7 +225,7 @@ const Percentage = styled('div')`
   width: 60px;
 `;
 
-const Bar = styled(({width, ...props}) => <div {...props} />)`
+const Bar = styled(({width: _width, ...props}) => <div {...props} />)`
   flex: 1;
   width: ${p => p.width}%;
   background-color: ${p => p.theme.gray1};
