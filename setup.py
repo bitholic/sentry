@@ -118,13 +118,13 @@ cmdclass = {
 
 
 setup(
-    name='sentry',
+    name='sentry-nos',
     version=VERSION,
-    author='Sentry',
+    author='Sentry & bitholic',
     author_email='hello@sentry.io',
-    url='https://sentry.io',
-    description='A realtime logging and aggregation server.',
-    long_description=open(os.path.join(ROOT, 'README.rst')).read(),
+    url='https://github.com/bitholic/sentry/tree/feature/nos',
+    description='A realtime logging and aggregation server with nos support.',
+    long_description=open(os.path.join(ROOT, 'README.md')).read(),
     package_dir={'': 'src'},
     packages=find_packages('src'),
     zip_safe=False,
